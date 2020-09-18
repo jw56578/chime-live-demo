@@ -94,9 +94,7 @@ http.createServer({}, async (request, response) => {
     respond(response, 400, 'application/json', JSON.stringify({ error: err.message }, null, 2));
   }
   log(`${request.method} ${request.url} END`);
-}).listen(host.split(':')[1], host.split(':')[0], () => {
-  log(`server running at http://${host}/`);
-});
+}).listen(process.env.PORT);
 
 function log(message) {
   console.log(`${new Date().toISOString()} ${message}`);
